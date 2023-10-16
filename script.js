@@ -12,19 +12,15 @@ fetch('https://swapi.dev/api/films/')
     var data = {
 
       labels: titulos,
-
       series: [estreno]
     };
 
-    var options = {
-    };
 
     var responsiveOptions = [
       ['screen and (min-width: 641px) and (max-width: 1024px)', {
         showPoint: false,
         axisX: {
           labelInterpolationFnc: function (value) {
-            // Will return Mon, Tue, Wed etc. on medium screens
             return value.slice(0, 3);
           }
         }
@@ -33,14 +29,13 @@ fetch('https://swapi.dev/api/films/')
         showLine: false,
         axisX: {
           labelInterpolationFnc: function (value) {
-            // Will return M, T, W etc. on small screens
             return value[0];
           }
         }
       }]
     ];
 
-    new Chartist.Line('#pelis', data, options, responsiveOptions);
+    new Chartist.Line('#pelis', data, responsiveOptions);
 
     const pelisLoader = document.getElementById("pelis_loader")
     pelisLoader.style.display = 'none';
@@ -60,7 +55,6 @@ fetch('https://swapi.dev/api/people/')
     var data = {
 
       labels: personajes,
-
       series: [part]
     };
 
